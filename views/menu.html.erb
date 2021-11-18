@@ -1,0 +1,27 @@
+<div class="row">
+  <p class="lead text-white-70">
+    Try to guess 4-digit number, that consists of numbers in a range from 1 to 6.
+  </p>
+</div>
+<hr class="mb-4" />
+<form action="/game" method="post">
+  <div class="form-group">
+    <label class="lead label" for="player_name"> Player's name:</label>
+    <input autofocus="" class="form-control" id="player_name" name="player_name" pattern="[A-Za-z0-9_]{3,20}"<% _slim_codeattributes1 = ("Your name"); if _slim_codeattributes1; if _slim_codeattributes1 == true %> placeholder=""<% else %> placeholder="<%= _slim_codeattributes1 %>"<% end; end %> required="" />
+  </div>
+  <div class="form-group">
+    <label class="lead label" for="level"> Game level:</label>
+    <select class="custom-select" name="level" required="">
+      <option id="" value=""> Choose game level...</option>
+      <% [Codebreaker::Difficulty::EASY, Codebreaker::Difficulty::MEDIUM, Codebreaker::Difficulty::HELL].each do |difficulty_symbol|
+difficulty = Codebreaker::Difficulty.difficulties(difficulty_symbol)
+ %><option id="<%= difficulty_symbol %>">
+        <%= difficulty.name %> - <%= difficulty.attempts %> attempts - <%= difficulty.hints %> hints
+      </option><% end %></select></div>
+<hr class="mb-4" />
+<button class="btn btn-primary btn-lg" type="submit">
+  Start the game!
+</button><span class="float-right">
+  <a class="btn btn-warning btn-lg" href="/rules" role="button"> Rules</a>
+  <a class="btn btn-success btn-lg" href="/statistics" role="button"> Statistics</a>
+</span></form>
