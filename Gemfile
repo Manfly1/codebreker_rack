@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://#{"#{ENV['SECRET_GIT']}:x-oauth-basic@" unless ENV['SECRET_GIT'].nil?}github.com/#{repo_name}"
 end
 
-gem 'codebreaker', github: 'Ar2emis/RubyCodebreaker'
+gem 'codebreaker_manflyy'
 gem 'rack'
 gem 'rack_session_access'
 gem 'slim'
