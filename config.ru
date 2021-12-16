@@ -10,4 +10,4 @@ use Rack::Session::Cookie, key: 'rack.session',
                            secret: 'secretKey'
 use RackSessionAccess::Middleware
 
-run CodebreakerRack::CodebreakerRackApp
+run Entities::CodebreakerRackApp

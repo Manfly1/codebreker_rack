@@ -7,7 +7,7 @@ require 'rack'
 require 'tilt'
 require 'slim'
 
-require 'codebreaker'
+require 'codebreker_manfly'
 
 require_relative 'modules/helper'
 

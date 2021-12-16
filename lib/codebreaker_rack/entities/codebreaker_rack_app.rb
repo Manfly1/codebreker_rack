@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CodebreakerRack
+module Entities
   class CodebreakerRackApp
     include Helper
 

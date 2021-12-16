@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-module CodebreakerRack
   module Helper
     def redirect(page)
       Rack::Response.new { |response| response.redirect(page) }
@@ -24,4 +23,3 @@ module CodebreakerRack
       "#{File.join('views', filename)}.html.erb"
     end
   end
-end

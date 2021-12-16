@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://#{"#{ENV['SECRET_GIT']}:x-oauth-basic@" unless ENV['SECRET_GIT'].nil?}github.com/#{repo_name}"
 end
 
-gem 'codebreaker_manflyy'
+gem 'codebreker_manfly', '~> 0.1.2'
 gem 'rack'
 gem 'rack_session_access'
 gem 'slim'

@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
-describe CodebreakerRack::CodebreakerRackApp do
+RSpec.describe Entities::CodebreakerRackApp do
   context 'when gets to /' do
     before { visit '/' }
 
     it 'returns the status 200' do
       expect(status_code).to be(200)
-    end
-
-    it 'displays Codebreaker 2020 on page' do
-      expect(page).to have_content 'Codebreaker 2020'
     end
 
     it 'displays input for entering player name' do
@@ -50,9 +46,9 @@ describe CodebreakerRack::CodebreakerRackApp do
 
   context 'with game' do
     let(:name) { Faker::Name.first_name }
-    let(:user) { Codebreaker::User.new(name) }
-    let(:difficulty) { Codebreaker::Difficulty.difficulties(:easy) }
-    let(:game) { Codebreaker::Game.new(difficulty, user) }
+    let(:user) { CodebrekerManfly::User.new(name) }
+    let(:difficulty) { CodebrekerManfly::Difficulty.difficulties(:easy) }
+    let(:game) { CodebrekerManfly::Game.new(difficulty, user) }
     let(:guess_number) { '1234' }
 
     context 'when game starts' do

@@ -40,7 +40,7 @@ when '+'
  %><button class="btn btn-success marks" type="button"> +</button>
     <% when '-'
  %><button class="btn btn-primary marks" disabled="" type="button"> -</button>
-  <% end; end; (Codebreaker::CodeGenerator::DEFAULT_CODE_LENGTH - answer.length).times do
+  <% end; end; (CodebrekerManfly::CodeGenerator::DEFAULT_CODE_LENGTH - answer.length).times do
  %><button class="btn btn-danger marks" type="button"> x</button>
 <% end; end %></div>
 <hr class="mb-4" />

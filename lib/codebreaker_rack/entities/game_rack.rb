@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CodebreakerRack
+module Entities
   class GameRack
     include Helper
 
@@ -34,7 +34,8 @@ module CodebreakerRack
       @game.nil? ? start_game : continue_game
       if @game.win? then redirect('/win')
       elsif @game.lose? then redirect('/lose')
-      else game_response
+      else
+        game_response
       end
     end
 
@@ -71,9 +72,9 @@ module CodebreakerRack
     end
 
     def start_game
-      user = Codebreaker::User.new(@request.params['player_name'])
-      difficulty = Codebreaker::Difficulty.difficulties(@request.params['level'].split.first.downcase.to_sym)
-      @game = Codebreaker::Game.new(difficulty, user)
+      user = CodebrekerManfly::User.new(@request.params['player_name'])
+      difficulty = CodebrekerManfly::Difficulty.difficulties(@request.params['level'].split.first.downcase.to_sym)
+      @game = CodebrekerManfly::Game.new(difficulty, user)
       @game.start
       @request.session[:game] = @game
     end
@@ -83,7 +84,7 @@ module CodebreakerRack
 
       @guess = @request.params['number']
       @request.session[:guess] = @guess
-      @answer = @game.make_turn(Codebreaker::Guess.new(@guess))
+      @answer = @game.make_turn(CodebrekerManfly::Guess.new(@guess))
       @request.session[:answer] = @answer
     end
 
