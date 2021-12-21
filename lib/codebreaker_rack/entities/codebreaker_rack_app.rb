@@ -4,6 +4,8 @@ module Entities
   class CodebreakerRackApp
     include Helper
 
+    ARRAY_STATE = %(game win lose hint restart).freeze
+
     def self.call(env)
       new(env).response.finish
     end
@@ -16,19 +18,19 @@ module Entities
     def response
       command = @request.path.delete('/')
       case command
-      when '' then menu
+      when '' then home
       when 'statistics' then statistics
       when 'rules' then rules
       else
-        %(game win lose hint restart).include?(command) ? GameRack.call(@env) : response_404
+       ARRAY_STATE.include?(command) ? GameRack.call(@env) : response_404
       end
     end
 
     private
 
-    def menu
+    def home
       @request.session.clear
-      create_response('menu')
+      create_response('home')
     end
 
     def statistics
