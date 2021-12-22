@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Entities::CodebreakerRackApp do
-  context 'when gets to /' do
+  describe 'when gets to /' do
     before { visit '/' }
 
     it 'returns the status 200' do
@@ -45,7 +45,7 @@ RSpec.describe Entities::CodebreakerRackApp do
   end
 
   context 'with game' do
-    let(:name) { Faker::Name.first_name }
+    let(:name) { FFaker::Name.first_name }
     let(:user) { CodebrekerManfly::User.new(name) }
     let(:difficulty) { CodebrekerManfly::Difficulty.difficulties(:easy) }
     let(:game) { CodebrekerManfly::Game.new(difficulty, user) }

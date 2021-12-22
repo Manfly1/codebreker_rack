@@ -1,7 +1,5 @@
-require: rubocop-rspec
-
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 2.7.0
   NewCops: enable
 
 Layout/LineLength:
@@ -15,5 +13,8 @@ Security/Eval:
     - 'spec/spec_helper.rb'
 
 Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
   Exclude:
     - 'spec/*/*spec.rb'
+
+

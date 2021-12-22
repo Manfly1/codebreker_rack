@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'faker'
+require 'ffaker'
 require 'rack'
 require 'rack/test'
 require 'capybara/rspec'

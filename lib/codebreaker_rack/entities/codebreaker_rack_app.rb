@@ -4,7 +4,7 @@ module Entities
   class CodebreakerRackApp
     include Helper
 
-    ARRAY_STATE = %(game win lose hint restart).freeze
+    ARRAY_STATE = %(game win lose hint restart)
 
     def self.call(env)
       new(env).response.finish
@@ -22,7 +22,7 @@ module Entities
       when 'statistics' then statistics
       when 'rules' then rules
       else
-       ARRAY_STATE.include?(command) ? GameRack.call(@env) : response_404
+        ARRAY_STATE.include?(command) ? GameRack.call(@env) : response_not_found
       end
     end
 

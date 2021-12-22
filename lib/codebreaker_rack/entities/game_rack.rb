@@ -10,10 +10,10 @@ module Entities
 
     def initialize(env)
       @request = Rack::Request.new(env)
-      @game = @request.session[:game]
-      @hints = @request.session[:hints].nil? ? [] : @request.session[:hints]
-      @guess = @request.session[:guess]
-      @answer = @request.session[:answer]
+      game_session
+      hints_session
+      guess_session
+      answer_session
     end
 
     def response
@@ -94,6 +94,24 @@ module Entities
 
     def game_params_empty?
       @request.params['player_name'].nil? || @request.params['level'].nil?
+    end
+
+    private
+
+    def game_session
+      @game = @request.session[:game]
+    end
+
+    def hints_session
+      @hints = @request.session[:hints].nil? ? [] : @request.session[:hints]
+    end
+
+    def guess_session
+      @guess = @request.session[:guess]
+    end
+
+    def answer_session
+      @game = @request.session[:game]
     end
   end
 end
